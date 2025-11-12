@@ -1,14 +1,13 @@
-// Sistema de Gerenciamento de Biblioteca
+
 class LibrarySystem {
     constructor() {
-        // Verificar autenticação primeiro
+        
         const currentUser = this.getCurrentUser();
         if (!currentUser) {
             window.location.href = 'login.html';
-            return; // Não continua se não estiver autenticado
+            return; 
         }
-        
-        // Se autenticado, inicializar o sistema
+
         this.books = this.loadBooks();
         this.editingId = null;
         this.displayUserInfo(currentUser);

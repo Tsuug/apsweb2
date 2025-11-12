@@ -1,4 +1,4 @@
-// Sistema de Autenticação
+
 class AuthSystem {
     constructor() {
         this.currentUser = this.getCurrentUser();
@@ -12,7 +12,7 @@ class AuthSystem {
     }
 
     checkAuth() {
-        // Se já estiver autenticado, redirecionar para a página principal
+        
         if (this.currentUser) {
             window.location.href = 'index.html';
         }
@@ -29,13 +29,13 @@ class AuthSystem {
     }
 
     switchTab(tab) {
-        // Atualizar botões de tab
+        
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
 
-        // Atualizar formulários
+        
         document.querySelectorAll('.auth-form').forEach(form => {
             form.classList.remove('active');
         });
@@ -83,7 +83,7 @@ class AuthSystem {
         const password = document.getElementById('register-password').value;
         const confirmPassword = document.getElementById('register-confirm').value;
 
-        // Validações
+       
         if (password.length < 6) {
             this.showNotification('A senha deve ter no mínimo 6 caracteres!', 'error');
             return;
@@ -96,13 +96,13 @@ class AuthSystem {
 
         const users = this.getUsers();
 
-        // Verificar se o email já existe
+        
         if (users.find(u => u.email === email)) {
             this.showNotification('Este email já está cadastrado!', 'error');
             return;
         }
 
-        // Criar novo usuário
+        
         const newUser = {
             id: Date.now().toString(),
             name: name,
@@ -116,7 +116,7 @@ class AuthSystem {
 
         this.showNotification('Conta criada com sucesso! Faça login para continuar.', 'success');
         
-        // Limpar formulário e voltar para a tab de login
+       
         document.getElementById('register-form').reset();
         setTimeout(() => {
             this.switchTab('login');
@@ -130,7 +130,7 @@ class AuthSystem {
     }
 
     setCurrentUser(user) {
-        // Não armazenar a senha na sessão
+        
         const userSession = {
             id: user.id,
             name: user.name,
@@ -190,7 +190,7 @@ class AuthSystem {
     }
 }
 
-// Adicionar animações CSS
+
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
@@ -216,7 +216,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Inicializar sistema de autenticação
+
 let auth;
 document.addEventListener('DOMContentLoaded', () => {
     auth = new AuthSystem();
