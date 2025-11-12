@@ -1,0 +1,19 @@
+{
+  "name": "sistema-biblioteca",
+  "version": "1.0.0",
+  "description": "Sistema de cadastro de biblioteca com HTML e JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "biblioteca",
+    "livros",
+    "cadastro"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+
+
+
